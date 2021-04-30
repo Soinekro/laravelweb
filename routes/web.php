@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\TestController;
+
 use App\Http\Controllers\UsersController;
+use Faker\Guesser\Name;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +31,7 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function() {
     Route::resource('users', UsersController::class);
+    Route::get('users/destroy/{id}',[UsersController::class, 'destroy'])->name('destroy');
 });
+
+

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Symfony\Polyfill\Intl\Idn\Idn;
 
 class UsersController extends Controller
 {
@@ -84,6 +85,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $users=User::find($id);
+        $users->delete();
+        return redirect()->action([UsersController::class ,'index']);
+
     }
 }

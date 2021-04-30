@@ -26,11 +26,14 @@
                         <td><a href="" class="btn btn-warning">{{ $user->type}}</a></td>
                         @endif
                         <td><a href="" class="btn ">Modificar</a>
-                        <a href="" class="btn btn-danger">Eliminar</a></td>
+                        <a href=" {{ url('admin/users/destroy', $user->id)}} " onclick="return confirm('Estas Seguro? ')" class="btn btn-danger">Eliminar</a></td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        {!! $users->render() !!}
+        <div class="text-center">
+            {!! $users->render() !!}
+        </div>
+
 
 @endsection
